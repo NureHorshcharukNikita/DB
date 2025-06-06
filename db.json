@@ -335,80 +335,70 @@
   "userTargetCalculations": [
     {
       "id": 1,
-      "user_target_calculation_id": 777,
-      "user_id": 123456,
+      "user_id": 1,
       "calculated_normal_calories": 1800,
       "calculated_weight": 48,
       "calculated_target_date": "2024-07-14"
     },
     {
       "id": 2,
-      "user_target_calculation_id": 776,
-      "user_id": 123456,
+      "user_id": 1,
       "calculated_normal_calories": 2200,
       "calculated_weight": 49.6,
       "calculated_target_date": "2024-06-09"
     },
     {
       "id": 3,
-      "user_target_calculation_id": 775,
-      "user_id": 123456,
+      "user_id": 2,
       "calculated_normal_calories": 2450,
       "calculated_weight": 50,
       "calculated_target_date": "2024-06-01"
     },
     {
       "id": 4,
-      "user_target_calculation_id": 12,
-      "user_id": 123456,
+      "user_id": 1,
       "calculated_normal_calories": 2333,
       "calculated_weight": 46,
       "calculated_target_date": "2024-09-09"
     },
     {
       "id": 5,
-      "user_target_calculation_id": 4324,
-      "user_id": 123456,
+      "user_id": 2,
       "calculated_normal_calories": 4555,
       "calculated_weight": 40,
       "calculated_target_date": "2024-04-01"
     },
     {
       "id": 6,
-      "user_target_calculation_id": 777,
-      "user_id": 123456,
+      "user_id": 1,
       "calculated_normal_calories": 1800,
       "calculated_weight": 48,
       "calculated_target_date": "2023-02-14"
     },
     {
       "id": 7,
-      "user_target_calculation_id": 776,
-      "user_id": 123456,
+      "user_id": 2,
       "calculated_normal_calories": 2200,
       "calculated_weight": 49.6,
       "calculated_target_date": "2025-05-09"
     },
     {
       "id": 8,
-      "user_target_calculation_id": 775,
-      "user_id": 123456,
+      "user_id": 1,
       "calculated_normal_calories": 2450,
       "calculated_weight": 50,
       "calculated_target_date": "2022-06-01"
     },
     {
       "id": 9,
-      "user_target_calculation_id": 12,
-      "user_id": 123456,
+      "user_id": 2,
       "calculated_normal_calories": 2333,
       "calculated_weight": 46,
       "calculated_target_date": "2025-03-09"
     },
     {
       "id": 10,
-      "user_target_calculation_id": 4324,
-      "user_id": 123456,
+      "user_id": 1,
       "calculated_normal_calories": 4555,
       "calculated_weight": 40,
       "calculated_target_date": "2024-02-05"
