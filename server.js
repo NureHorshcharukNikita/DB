@@ -137,30 +137,30 @@ app.get('/user/me', (req, res) => {
 });
 
 // ============ Personal_User_Data endpoints ============
-app.patch('/personal-user-data/me', (req, res) => {
+app.patch('/personalUserData/me', (req, res) => {
   const userId = getUserIdFromToken(req);
   if (!userId) return res.status(401).json({ message: 'Unauthorized' });
 
-  let pud = app.db.get('personalUserData').find({ user_id: userId }).value();
+  let pud = app.db.get('personal_user_data').find({ user_id: userId }).value();
   if (!pud) {
     pud = {
       personal_user_data_id: Date.now(),
       user_id: userId,
       ...req.body
     };
-    app.db.get('personalUserData').push(pud).write();
+    app.db.get('personal_user_data').push(pud).write();
   } else {
     Object.assign(pud, req.body);
-    app.db.get('personalUserData').find({ user_id: userId }).assign(pud).write();
+    app.db.get('personal_user_data').find({ user_id: userId }).assign(pud).write();
   }
   res.json(pud);
 });
 
-app.get('/personal-user-data/me', (req, res) => {
+app.get('/personalUserData/me', (req, res) => {
   const userId = getUserIdFromToken(req);
   if (!userId) return res.status(401).json({ message: 'Unauthorized' });
 
-  const pud = app.db.get('personalUserData').find({ user_id: userId }).value();
+  const pud = app.db.get('personal_user_data').find({ user_id: userId }).value();
   if (!pud) return res.status(404).json({ message: 'Personal data not found' });
   res.json(pud);
 });
