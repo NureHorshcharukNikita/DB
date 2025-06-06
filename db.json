@@ -28,6 +28,11 @@
       "id": 1,
       "goal_type": "weightLoss",
       "description": "Decrease weight"
+    },
+    {
+      "id": 2,
+      "goal_type": "muscleGain",
+      "description": "Increase weight"
     }
   ],
   "exercises": [

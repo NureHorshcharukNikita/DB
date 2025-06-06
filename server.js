@@ -142,17 +142,23 @@ app.patch('/personalUserData/me', (req, res) => {
   if (!userId) return res.status(401).json({ message: 'Unauthorized' });
 
   let pud = app.db.get('personal_user_data').find({ user_id: userId }).value();
+
   if (!pud) {
+    // Если данные пользователя нет в базе, создаём новый объект
     pud = {
       personal_user_data_id: Date.now(),
       user_id: userId,
+      goal_id: req.body.goal_id || 1,  // Если цель не передана, назначаем дефолтное значение
+      order_number: app.db.get('personal_user_data').size().value() + 1,  // Генерация порядкового номера
       ...req.body
     };
     app.db.get('personal_user_data').push(pud).write();
   } else {
+    // Если данные пользователя уже есть, обновляем их
     Object.assign(pud, req.body);
     app.db.get('personal_user_data').find({ user_id: userId }).assign(pud).write();
   }
+
   res.json(pud);
 });
 
