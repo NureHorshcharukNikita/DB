@@ -418,7 +418,7 @@
     {
       "id": 1,
       "user_id": 1,
-      "membership_name": "FDSFSD",
+      "membership_name": "Individual Membership",
       "membership_description": "Access to gym and unlimited group classes",
       "membership_price": 129,
       "membership_type": "gym",
@@ -435,7 +435,7 @@
       "membership_type": "gym",
       "type": "group",
       "start_date": "2025-05-01",
-      "end_date": "2025-06-30"
+      "end_date": "2025-06-50"
     }
   ]
 }
