@@ -190,6 +190,34 @@ app.get('/userTargetCalculations/me', (req, res) => {
   res.json(calculations);
 });
 
+app.post('/userTargetCalculations/add', (req, res) => {
+  const userId = getUserIdFromToken(req);
+  if (!userId) return res.status(401).json({ message: 'Unauthorized' });
+
+  // Данные из запроса
+  const { calculatedNormalCalories, calculatedWeight, calculatedTargetDate } = req.body;
+
+  // Проверка на обязательные поля
+  if (calculatedNormalCalories == null || calculatedWeight == null || !calculatedTargetDate) {
+    return res.status(400).json({ message: 'Required fields: calculatedNormalCalories, calculatedWeight, calculatedTargetDate' });
+  }
+
+  // Создаём новую запись с user_id
+  const newCalculation = {
+    user_id: userId, // добавляем id пользователя
+    calculatedNormalCalories: calculatedNormalCalories,
+    calculatedWeight: calculatedWeight,
+    calculatedTargetDate: new Date(calculatedTargetDate), // конвертируем в дату
+    id: Date.now(), // генерируем id на основе времени
+  };
+
+  // Сохраняем новую запись в базе данных
+  app.db.get('userTargetCalculations').push(newCalculation).write();
+
+  // Отправляем ответ с новой записью
+  res.status(201).json(newCalculation);
+});
+
 
 // ============ Обновление последней записи UserTargetCalculation =============
 app.put('/userTargetCalculations/update-last', (req, res) => {
