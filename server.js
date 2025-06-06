@@ -175,6 +175,21 @@ app.get('/memberships/me', (req, res) => {
   res.json(membership);
 });
 
+// ============ userTargetCalculations endpoints ============
+app.get('/userTargetCalculations/me', (req, res) => {
+  const userId = getUserIdFromToken(req);
+  if (!userId) return res.status(401).json({ message: 'Unauthorized' });
+
+  // Получаем все расчеты по user_id
+  const calculations = app.db.get('userTargetCalculations').filter({ user_id: userId }).value();
+
+  if (!calculations || calculations.length === 0) {
+    return res.status(404).json({ message: 'No calculations found for this user' });
+  }
+
+  res.json(calculations);
+});
+
 
 // ============ Обновление последней записи UserTargetCalculation =============
 app.put('/userTargetCalculations/update-last', (req, res) => {
